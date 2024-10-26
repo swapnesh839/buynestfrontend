@@ -1,48 +1,62 @@
+"use client"
 import * as React from "react"
-import { Button } from "@/components/ui/button"
+import needhelpimg from "@/assets/NeedHelp.png"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Headphones, Home, Compass, Heart, ShoppingCart, Store, User, Clock, MessageSquare, Settings, Plus } from "lucide-react"
+import Link from "next/link"
+import { NavConstraints } from "@/Constraints/NavConstraints"
+import { usePathname } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Sidebar() {
   return (
-    <div className={"h-screen min-w-[240px] max-w-[300px] border-r"}>
+    <div className={"h-screen min-w-[240px] max-w-[300px] border-r flex flex-col"}>
       <div className="p-4 border-b bg-[#00a7a7] text-white">
         <div className="flex items-center gap-2">
-          <Headphones size={24} />
+          <Headphones size={26} />
           <h1 className="text-xl font-semibold">Beatsflex.</h1>
         </div>
       </div>
-      <ScrollArea className="flex-1">
-        <nav className="flex flex-col gap-1 p-2">
-          <NavItem icon={Home} label="Home" />
-          <NavItem icon={Compass} label="Explore" />
-          <NavItem icon={Heart} label="Saved" />
-          <NavItem icon={ShoppingCart} label="Cart" />
-          <NavItem icon={Store} label="Selling" />
-          <NavItem icon={User} label="Profile" />
-          <NavItem icon={Clock} label="Purchase History" />
-          <NavItem icon={MessageSquare} label="Contact us" />
-          <NavItem icon={Settings} label="Settings" />
+      <ScrollArea className="h-full">
+        <nav className="flex flex-col gap-1">
+          <NavItem href={NavConstraints.home.path} icon={Home} label="Home" />
+          <NavItem href="" icon={Compass} label="Explore" />
+          <NavItem href={NavConstraints.saved.path} icon={Heart} label="Saved" />
+          <NavItem href={NavConstraints.cart.path} icon={ShoppingCart} label="Cart" />
+          <NavItem href={NavConstraints.selling.path} icon={Store} label="Selling" />
+          <NavItem href={NavConstraints.profile.path} icon={User} label="Profile" />
+          <NavItem href={NavConstraints.purchasehistory.path} icon={Clock} label="Purchase History" />
+          <NavItem href={NavConstraints.contact.path} icon={MessageSquare} label="Contact us" />
+          <NavItem href={NavConstraints.settings.path} icon={Settings} label="Settings" />
         </nav>
       </ScrollArea>
-      <div className="p-4 bg-[#e6f7ff] mt-auto">
-        <Button variant="ghost" className="w-full justify-start gap-2 text-[#00a7a7]">
-          <Plus size={16} />
-          <div className="flex flex-col items-start">
-            <span className="text-xs font-semibold">Need Help</span>
-            <span className="text-xs">Customer Service</span>
+      <div className="justify-center align-middle flex p-1 relative">
+        <div className="w-full gap-2 text-[white] bg-[#00a7a7] relative px-3 py-5 rounded-sm">
+          <Image className="absolute bottom-0 right-0 w-20 h-20" src={needhelpimg} alt="Need Help" width={100} height={100} />
+          <Image className="absolute top-0 left-0 rotate-180 w-20 h-20" src={needhelpimg} alt="Need Help" width={100} height={100} />
+          <div className="flex flex-col gap-2 items-center justify-center w-full">
+          <div className="p-1 bg-white rounded-full"><Plus size={26} className="bg-[green] text-white rounded-full" /></div>
+            <span className="text-xs font-bold">Need Help</span>
+            <span className="text-xs">We are here to help 24/7</span>
+            <Button className="bg-[#D9F4FF] hover:bg-[#D9F4FF] hover:scale-105 transform transition-all duration-300 hover:text-[#183e3e] text-[#016170]">Customer Service</Button>
           </div>
-        </Button>
+        </div>
       </div>
     </div>
   )
 }
 
-function NavItem({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
+function NavItem({ icon: Icon, label,href }: { icon: React.ElementType; label: string,href:string }) {
+  const path = usePathname()
+  const Active = path === href
   return (
-    <Button variant="ghost" className="w-full justify-start gap-4">
-      <Icon size={20} />
-      {label}
-    </Button>
+    <div className={`relative mt-1 hover:bg-[#009393]/30 rounded ${Active?"bg-[#009393]/30":""}`}>
+      {Active &&<div style={{ height: "80%" }} className="bg-[#009393] -translate-y-1/2 w-1.5 absolute left-0 top-1/2 rounded-r-md"></div>}
+      <Link href={href} className="w-full px-2 ms-5 justify-start inline-flex items-center gap-2 py-3 ">
+        <Icon size={20} />
+        {label}
+      </Link>
+    </div>
   )
 }

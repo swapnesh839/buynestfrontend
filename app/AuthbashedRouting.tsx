@@ -6,7 +6,7 @@ import Unauthorizedimg from "@/assets/Unauthorized.png"
 // type AllowedUserType = 'admin' | 'superadmin';
 
 interface AuthbashedRoutingtype {
-  UserAccess?: ['all'] |['admin' | 'superadmin']|["admin"];
+  UserAccess?: ['all'] |['admin' | 'superadmin']|["admin"]|["user"]|["user","subadmin"]|["superadmin","admin","subadmin"];
   children: React.ReactNode;
 }
 const AuthbashedRouting = ({ children, UserAccess = ["all"] }: AuthbashedRoutingtype) => {
