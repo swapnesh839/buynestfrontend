@@ -35,7 +35,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
 
   const handleAddToCart = () => {
     setIsAdded(true)
-    setTimeout(() => setIsAdded(false), 2000) 
+    setTimeout(() => setIsAdded(false), 2000)
   }
 
   return (
@@ -55,9 +55,8 @@ function ProductCard({ product }: { product: typeof products[0] }) {
         </div>
         <button
           onClick={handleAddToCart}
-          className={`rounded-full p-1 transition-colors ${
-            isAdded ? 'bg-green-500 text-white' : 'bg-teal-500 text-white hover:bg-teal-600'
-          }`}
+          className={`rounded-full p-1 transition-colors ${isAdded ? 'bg-green-500 text-white' : 'bg-teal-500 text-white hover:bg-teal-600'
+            }`}
           disabled={isAdded}
         >
           <Plus className="w-6 h-6" />

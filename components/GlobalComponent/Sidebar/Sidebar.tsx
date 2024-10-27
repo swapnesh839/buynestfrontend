@@ -11,7 +11,7 @@ import Image from "next/image"
 
 export default function Sidebar() {
   return (
-    <div className={"h-screen min-w-[240px] max-w-[300px] border-r flex flex-col"}>
+    <div className={"h-screen min-w-[240px] max-w-[300px] border-r bg-white hidden md:flex flex-col"}>
       <div className="p-4 border-b bg-[#00a7a7] text-white">
         <div className="flex items-center gap-2">
           <Headphones size={26} />
