@@ -65,7 +65,7 @@ const Homecarousal = () => (
                 <ProductCard key={product.id} product={product} />
             ))}
         </Carousel>
-        <div className='flex w-full'>
+        <div className='flex w-full mt-3'>
             <Button variant="link" className="text-sm text-gray-500 font-normal ml-auto">
                 Explore More
                 <ArrowRight className="ml-1 h-4 w-4" />
