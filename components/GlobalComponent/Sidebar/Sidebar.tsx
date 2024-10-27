@@ -37,7 +37,7 @@ export default function Sidebar() {
           <Image className="absolute top-0 left-0 rotate-180 w-20 h-20" src={needhelpimg} alt="Need Help" width={100} height={100} />
           <div className="flex flex-col gap-2 items-center justify-center w-full">
           <div className="p-1 bg-white rounded-full"><Plus size={26} className="bg-[green] text-white rounded-full" /></div>
-            <span className="text-xs font-bold">Need Help</span>
+            <span className="font-bold">Need Help ?</span>
             <span className="text-xs">We are here to help 24/7</span>
             <Button className="bg-[#D9F4FF] hover:bg-[#D9F4FF] hover:scale-105 transform transition-all duration-300 hover:text-[#183e3e] text-[#016170]">Customer Service</Button>
           </div>

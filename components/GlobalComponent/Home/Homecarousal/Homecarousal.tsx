@@ -3,11 +3,15 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import headephone1 from "@/assets/Home/headephone1.png"
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 // import Image from 'next/image';
 
 const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
-    tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
+    xl: { breakpoint: { max: 3000, min: 2000 }, items: 4 },
+    lg: { breakpoint: { max: 2000, min: 1500 }, items: 3 },
+    desktop: { breakpoint: { max: 1500, min: 1024 }, items: 2 },
+    tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
     mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 };
 
@@ -26,7 +30,7 @@ const ProductCard = ({ product }: { product: typeof products[0] }) => (
             className="rounded-full w-16 h-16 mx-auto mb-4"
         ></div> */}
         <div className='flex justify-center items-center'>
-        <div style={{backgroundImage: `url(${headephone1.src})`, backgroundSize: 'cover', backgroundPosition: 'center'}} className='w-full max-w-[160px] aspect-square p-8 mb-7 rounded-s-full'></div>
+            <div style={{ backgroundImage: `url(${headephone1.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='w-full max-w-[160px] aspect-square p-8 mb-7 rounded-s-full'></div>
         </div>
         {/* <Image src={headephone1} alt={product.name} width={200} height={200} className="w-full max-w-[200px] aspect-square p-4 rounded-s-full mb-4" /> */}
         <h3 className="font-bold text-sm text-gray-700">{product.name}</h3>
@@ -47,20 +51,27 @@ const Homecarousal = () => (
     <div className='w-full p-3 bg-white mt-3 rounded-lg border'>
         <h3 className='text-xl font-bold text-teal-700 my-4 ps-1'>Popular Headphones We Have</h3>
         <Carousel
-        responsive={responsive}
-        infinite={true}
-        // customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        itemClass="p-2"
-        dotListClass="custom-dot-list-style"
-        showDots={false}
+            responsive={responsive}
+            infinite={true}
+            // customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            itemClass="p-2"
+            dotListClass="custom-dot-list-style"
+            showDots={false}
         // arrows={false}
-    >
-        {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-        ))}
-    </Carousel>
+        >
+            {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+            ))}
+        </Carousel>
+        <div className='flex w-full'>
+            <Button variant="link" className="text-sm text-gray-500 font-normal ml-auto">
+                Explore More
+                <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+        </div>
+        {/* <h6 className='text-teal-700 font-bold hover:underline mt-5 flex justify-center align-middle ms-auto'>Explore More <ArrowRight size={13} /> </h6> */}
     </div>
 );
 
