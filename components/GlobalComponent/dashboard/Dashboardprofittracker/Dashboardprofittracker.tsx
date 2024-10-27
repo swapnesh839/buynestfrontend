@@ -48,9 +48,9 @@ const stats = [
 
 export default function Dashboardprofittracker() {
   return (
-    <div className="grid grid-cols-10 gap-3 bg-white">
+    <div className="grid grid-cols-10 gap-3">
       {stats.map((stat, index) => (
-        <Card key={index} className="col-span-10 md:col-span-2 bg-white shadow-md">
+        <Card key={index} className="col-span-10 md:col-span-5 lg:col-span-2 bg-white shadow-md">
           <CardContent className="p-6">
             <div className="flex flex-col items-center text-center">
               <div 
