@@ -22,17 +22,17 @@ const page = () => {
       <div className='h-auto md:col-span-5 col-span-12 order-1 md:order-2'>
         <div className='grid row-span-11 gap-3'>
           <div className='col-span-12'>
-          <Card style={{ background: "linear-gradient(90deg, #A1D2FF 0%, #00E0C6 100%)" }} className='min-h-[260px] relative flex flex-col justify-between '>
+          <Card style={{ background: "linear-gradient(90deg, #A1D2FF 0%, #00E0C6 100%)" }} className='min-h-[260px] relative z-[1] flex flex-col justify-between '>
             <CardHeader className='text-[#016170] text-3xl'>
               Summer headphones from top brands
             </CardHeader>
             <CardContent>
               <div className='flex text-[#016170] justify-between hover:scale-105 transform transition-transform hover:underline transition-100 cursor-pointer items-center max-w-[110px]'>Buy it now <MoveRight size={17} /> </div>
             </CardContent>
-            <Image className='absolute -bottom-9 -right-6 w-5/12 max-w-36' src={Summerheadphhones} alt="Placeholder" width={500} height={300} />
+            <Image className='absolute -bottom-9 -right-6 w-5/12 max-w-36 z-[1]' src={Summerheadphhones} alt="Placeholder" width={500} height={300} />
           </Card>
           </div>
-          <div className='col-span-12' >
+          <div className='col-span-12 z-10 relative' >
             <SummerHeadphesones />
           </div>
         </div>

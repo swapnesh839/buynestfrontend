@@ -44,7 +44,7 @@ export default function ProfilePage() {
               <TabsContent value="personal-info">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Personal Information</CardTitle>
+                    <CardTitle className='text-3xl font-bold text-gray-900 mb-6'>Personal Information</CardTitle>
                     <CardDescription>Update your personal details here.</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">

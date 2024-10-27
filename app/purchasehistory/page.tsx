@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function PurchaseHistoryPage() {
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null)
@@ -15,7 +14,7 @@ export default function PurchaseHistoryPage() {
   }
 
   return (
-    <div className="bg-white p-3 border shadow rounded-md">
+    <div className="p-3">
       {/* <header className="bg-[#00B8A9] shadow-sm">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center">
@@ -31,12 +30,11 @@ export default function PurchaseHistoryPage() {
         </div>
       </header> */}
 
-      <main className="">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold">Purchase History</CardTitle>
-          </CardHeader>
-          <CardContent>
+      <main className="bg-white border shadow rounded-md p-3">
+          
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Purchase History</h2>
+          
+          <div>
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div className="flex items-center w-full sm:w-auto">
                 <Input 
@@ -137,8 +135,7 @@ export default function PurchaseHistoryPage() {
                 ))}
               </TableBody>
             </Table>
-          </CardContent>
-        </Card>
+          </div>
       </main>
     </div>
   )
