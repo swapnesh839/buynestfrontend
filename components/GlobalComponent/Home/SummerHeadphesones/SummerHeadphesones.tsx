@@ -72,7 +72,7 @@ export default function SummerHeadphesones() {
         <ScrollArea className="h-[300px] w-full">
         <ul className="space-y-4">
           {products.map((product, index) => (
-            <li key={index} className="flex items-center space-x-4">
+            <li key={index} className="flex items-center border-t border-b py-3 border-gray-400/40 space-x-4">
               <Image
                 width={100}
                 height={100}
