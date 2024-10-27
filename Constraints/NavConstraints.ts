@@ -78,6 +78,16 @@ interface NavConstraintstype {
         path: "/becomeaseller",
         UserType: ["user"],
         id: "becomeaseller"
+    },
+    support:{
+        path: "/support",
+        UserType: ["user","subadmin"],
+        id: "support"
+    },
+    help:{
+        path: "/help",
+        UserType: ["all"],
+        id: "help"
     }
 }
 
@@ -161,5 +171,15 @@ export const NavConstraints:NavConstraintstype = {
         path: "/becomeaseller",
         UserType: ["user"],
         id: "becomeaseller"
-    }
+    },
+    support:{
+        path: "/support",
+        UserType: ["user","subadmin"],
+        id: "support"
+    },
+    help:{
+        path: "/help",
+        UserType: ["all"],
+        id: "help"
+    },
 }
