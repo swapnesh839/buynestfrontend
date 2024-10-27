@@ -10,7 +10,7 @@ interface props{
 
 export default function DashboardAreaChart({data}: {data: props[]}) {
   return (
-    <div className='p-4 shadow-md border rounded-md'>
+    <div className='p-4 shadow-md border rounded-md bg-white'>
       <ResponsiveContainer width="100%" height={250}>
       <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>

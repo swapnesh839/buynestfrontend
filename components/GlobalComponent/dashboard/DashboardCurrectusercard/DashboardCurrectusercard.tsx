@@ -14,7 +14,7 @@ const data = [
 
 export default function UserDashboard() {
     return (
-        <div className='p-3 bg-white'>
+        <div className='p-3 bg-white rounded-md shadow border'>
             <div className="text-4xl font-bold text-[#00a7a7] mb-4">13,561</div>
             <div className="h-40">
                 <ResponsiveContainer width="100%" height="100%">

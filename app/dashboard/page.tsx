@@ -85,20 +85,22 @@ const page = () => {
         <div className='col-span-12'>
           <Dashboardprofittracker />
         </div>
-        <div className='col-span-4'>
+        <div className='col-span-12 grid grid-cols-12 gap-3'>
+        <div className='col-span-12 lg:col-span-4'>
           <DashboardRadarChart />
         </div>
-        <div className='col-span-4'>
+        <div className='col-span-12 lg:col-span-4'>
           <DashboardRadarChart />
         </div>
-        <div className='col-span-4'>
+        <div className='col-span-12 lg:col-span-4'>
           <DashboardRadarChart />
+        </div>
         </div>
       </div>
       <div className='col-span-12'>
         <DashboardAreaChart data={data} />
       </div>
-      <div className='col-span-4'>
+      <div className='col-span-12 md:col-span-4'>
         <DashboardCurrectusercard/>
       </div>
     </div>
