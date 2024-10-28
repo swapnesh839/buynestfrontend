@@ -6,12 +6,10 @@ import React from 'react'
 const ProtecteRouting = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='h-screen overflow-hidden flex'>
-      <Sidebar/>
+      <Sidebar />
       <ScrollArea className='w-full'>
-      <div>
-        <Header/>
-      {children}
-      </div>
+          <Header />
+          {children}
       </ScrollArea>
     </div>
   )

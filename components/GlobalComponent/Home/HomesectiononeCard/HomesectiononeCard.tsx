@@ -94,12 +94,15 @@ export default function HomesectiononeCard() {
                             </div>
                         </div>
 
-                        <div className="flex space-x-2 sm:space-x-4">
-                            <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10" aria-label="Add to wishlist">
-                                <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
+                        <div className="grid grid-cols-12 gap-3">
+                            {/* <div className="col-span-2 p-0 m-0" aria-label="Add to wishlist">
+                                <Heart className="" />
+                            </div> */}
+                            <Button variant="outline" className=" text-xs sm:text-sm col-span-2 ">
+                                <Heart/>
                             </Button>
-                            <Button variant="outline" className="flex-1 text-xs sm:text-sm">Add to cart</Button>
-                            <Button className="flex-1 bg-teal-600 hover:bg-teal-700 text-xs sm:text-sm">Buy now</Button>
+                            <Button variant="outline" className=" text-xs sm:text-sm col-span-5">Add to cart</Button>
+                            <Button className=" bg-teal-600 hover:bg-teal-700 text-xs sm:text-sm col-span-5">Buy now</Button>
                         </div>
                     </div>
                 </div>
