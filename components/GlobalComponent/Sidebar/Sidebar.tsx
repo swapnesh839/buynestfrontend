@@ -21,7 +21,7 @@ export default function Sidebar() {
       <ScrollArea className="h-full">
         <nav className="flex flex-col gap-1">
           <NavItem href={NavConstraints.home.path} icon={Home} label="Home" />
-          <NavItem href="" icon={Compass} label="Explore" />
+          <NavItem href={NavConstraints.explore.path} icon={Compass} label="Explore" />
           <NavItem href={NavConstraints.saved.path} icon={Heart} label="Saved" />
           <NavItem href={NavConstraints.cart.path} icon={ShoppingCart} label="Cart" />
           <NavItem href={NavConstraints.selling.path} icon={Store} label="Selling" />

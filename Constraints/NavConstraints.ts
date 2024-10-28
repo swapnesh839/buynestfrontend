@@ -88,6 +88,11 @@ interface NavConstraintstype {
         path: "/help",
         UserType: ["all"],
         id: "help"
+    },
+    explore: {
+        path: "/explore",
+        UserType: "user",
+        id: "explore"
     }
 }
 
@@ -96,6 +101,11 @@ export const NavConstraints:NavConstraintstype = {
         path: "/",
         UserType: "user",
         id: "home"
+    },
+    explore: {
+        path: "/explore",
+        UserType: "user",
+        id: "explore"
     },
     login: {
         path: "/login",

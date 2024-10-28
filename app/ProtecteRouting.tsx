@@ -1,3 +1,4 @@
+import Footer from '@/components/GlobalComponent/footer/Footer'
 import Header from '@/components/GlobalComponent/Header/Header'
 import Sidebar from '@/components/GlobalComponent/Sidebar/Sidebar'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -8,8 +9,9 @@ const ProtecteRouting = ({ children }: { children: React.ReactNode }) => {
     <div className='h-screen overflow-hidden flex'>
       <Sidebar />
       <ScrollArea className='w-full'>
-          <Header />
-          {children}
+        <Header />
+        {children}
+        <Footer/>
       </ScrollArea>
     </div>
   )
