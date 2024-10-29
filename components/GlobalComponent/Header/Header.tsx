@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 export default function Header() {
   return (
     <header className="w-full sticky z-[100] top-0 py-4 px-4 sm:px-6 lg:px-8 bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className=" mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold text-gray-900">Smart Accessories</h1>
           <p className="ml-1 text-sm text-gray-500">From top brands</p>

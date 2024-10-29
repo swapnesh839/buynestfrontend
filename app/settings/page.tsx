@@ -209,8 +209,8 @@ export default function SettingsPage() {
           </TabsContent>
         </Tabs>
 
-        <div className="mt-8">
-          <Button variant="destructive" className="w-full sm:w-auto">
+        <div className="mt-8 flex">
+          <Button variant="destructive" className="ml-auto min-w-20">
             <LogOut className="w-4 h-4 mr-2" />
             Log Out of All Devices
           </Button>
