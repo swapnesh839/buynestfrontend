@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Plus, Search, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import Summerheadphhones from "@/assets/Home/Summerheadphhones.png"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -200,7 +201,7 @@ export default function AdminProductManagement() {
                     {editingProduct && (
                       <div className="relative aspect-square">
                         <Image
-                          src="/placeholder.svg"
+                          src={Summerheadphhones}
                           alt="Product image"
                           layout="fill"
                           objectFit="cover"

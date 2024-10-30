@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Textarea } from "@/components/ui/textarea"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import Summerheadphhones from "@/assets/Home/Summerheadphhones.png"
 
 export default function EnhancedCartPage() {
   const cartItems = [
@@ -20,7 +21,7 @@ export default function EnhancedCartPage() {
       name: "Wireless Earbuds",
       price: 129.99,
       quantity: 1,
-      image: "/placeholder.svg",
+      image: Summerheadphhones,
       estimatedDelivery: "May 15 - May 20",
     },
     {
@@ -28,19 +29,19 @@ export default function EnhancedCartPage() {
       name: "Bluetooth Speaker",
       price: 79.99,
       quantity: 2,
-      image: "/placeholder.svg",
+      image: Summerheadphhones,
       estimatedDelivery: "May 14 - May 18",
     },
   ]
 
   const relatedProducts = [
-    { id: 3, name: "Headphones Stand", price: 24.99, image: "/placeholder.svg" },
-    { id: 4, name: "Portable Charger", price: 39.99, image: "/placeholder.svg" },
+    { id: 3, name: "Headphones Stand", price: 24.99, image: Summerheadphhones },
+    { id: 4, name: "Portable Charger", price: 39.99, image: Summerheadphhones },
   ]
 
   const recentlyViewed = [
-    { id: 5, name: "Wireless Mouse", price: 29.99, image: "/placeholder.svg" },
-    { id: 6, name: "Laptop Sleeve", price: 19.99, image: "/placeholder.svg" },
+    { id: 5, name: "Wireless Mouse", price: 29.99, image: Summerheadphhones },
+    { id: 6, name: "Laptop Sleeve", price: 19.99, image: Summerheadphhones },
   ]
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
