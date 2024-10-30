@@ -1,6 +1,6 @@
 import { Camera, DollarSign, HelpCircle, Upload, Search, MoreVertical } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+// import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -45,23 +45,8 @@ export default function SellingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-[#00A19C] text-white p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
-            Beatsflex
-          </Link>
-          <nav className="flex items-center space-x-4">
-            <Link href="/dashboard" className="text-white hover:text-gray-200">
-              Seller Dashboard
-            </Link>
-            <Link href="/profile" className="text-white hover:text-gray-200">
-              My Account
-            </Link>
-          </nav>
-        </div>
-      </header>
-      <main className="container mx-auto py-8">
+    <div className="min-h-screen p-3">
+      <main className="border shadow rounded p-3 bg-white">
         <h1 className="text-3xl font-bold mb-8">Sell on Beatsflex</h1>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
@@ -288,11 +273,6 @@ export default function SellingPage() {
           <Button variant="outline">Load More</Button>
         </div>
       </main>
-      <footer className="bg-gray-200 p-4 mt-8">
-        <div className="container mx-auto text-center text-sm text-gray-600">
-          © 2024 Beatsflex. All rights reserved.
-        </div>
-      </footer>
     </div>
   )
 }
