@@ -1,6 +1,7 @@
 import { Camera, DollarSign, HelpCircle, Upload, Search, MoreVertical } from "lucide-react"
 import Image from "next/image"
 // import Link from "next/link"
+import Summerheadphhones from "@/assets/Home/Summerheadphhones.png"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -37,18 +38,18 @@ export default function SellingPage() {
   ]
 
   const pastProducts = [
-    { id: 1, name: "Wireless Earbuds", price: 79.99, dateAdded: "2024-03-15", status: "Active", image: "/placeholder.svg", description: "High-quality wireless earbuds with noise cancellation." },
-    { id: 2, name: "Portable Charger", price: 39.99, dateAdded: "2024-03-10", status: "Sold Out", image: "/placeholder.svg", description: "10000mAh portable charger with fast charging capability." },
-    { id: 3, name: "Smart Home Hub", price: 129.99, dateAdded: "2024-03-05", status: "Active", image: "/placeholder.svg", description: "Central hub for controlling all your smart home devices." },
-    { id: 4, name: "Fitness Tracker", price: 49.99, dateAdded: "2024-02-28", status: "Inactive", image: "/placeholder.svg", description: "Track your steps, heart rate, and sleep patterns." },
-    { id: 5, name: "Noise-Cancelling Headphones", price: 199.99, dateAdded: "2024-02-20", status: "Active", image: "/placeholder.svg", description: "Over-ear headphones with advanced noise cancellation technology." },
+    { id: 1, name: "Wireless Earbuds", price: 79.99, dateAdded: "2024-03-15", status: "Active", image: Summerheadphhones.src, description: "High-quality wireless earbuds with noise cancellation." },
+    { id: 2, name: "Portable Charger", price: 39.99, dateAdded: "2024-03-10", status: "Sold Out", image: Summerheadphhones.src, description: "10000mAh portable charger with fast charging capability." },
+    { id: 3, name: "Smart Home Hub", price: 129.99, dateAdded: "2024-03-05", status: "Active", image: Summerheadphhones.src, description: "Central hub for controlling all your smart home devices." },
+    { id: 4, name: "Fitness Tracker", price: 49.99, dateAdded: "2024-02-28", status: "Inactive", image: Summerheadphhones.src, description: "Track your steps, heart rate, and sleep patterns." },
+    { id: 5, name: "Noise-Cancelling Headphones", price: 199.99, dateAdded: "2024-02-20", status: "Active", image: Summerheadphhones.src, description: "Over-ear headphones with advanced noise cancellation technology." },
   ]
 
   return (
     <div className="min-h-screen p-3">
       <main className="border shadow rounded p-3 bg-white">
         <h1 className="text-3xl font-bold mb-8">Sell on Beatsflex</h1>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-3">
           <div className="md:col-span-2">
             <Card>
               <CardHeader>
@@ -65,7 +66,7 @@ export default function SellingPage() {
                     <Label htmlFor="product-description">Product Description</Label>
                     <Textarea id="product-description" placeholder="Describe your product" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="product-price">Price</Label>
                       <div className="relative">
@@ -121,8 +122,8 @@ export default function SellingPage() {
               </CardFooter>
             </Card>
           </div>
-          <div className="space-y-6">
-            <Card>
+          <div className="grid grid-cols-1 auto-rows-min gap-3">
+            <Card className="h-auto">
               <CardHeader>
                 <CardTitle>Selling Tips</CardTitle>
               </CardHeader>
@@ -136,7 +137,7 @@ export default function SellingPage() {
                 </ul>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="h-auto">
               <CardHeader>
                 <CardTitle>Need Help?</CardTitle>
               </CardHeader>

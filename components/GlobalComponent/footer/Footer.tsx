@@ -1,14 +1,14 @@
 ""
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
+// import { Button } from '@/components/ui/button'
+// import { Input } from '@/components/ui/input'
+// import { Separator } from '@/components/ui/separator'
+// import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-white p-8 mt-12">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-white p-8">
+        {/* <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -37,8 +37,8 @@ const Footer = () => {
               </Button>
             </form>
           </div>
-        </div>
-        <Separator className="my-8" />
+        </div> */}
+        {/* <Separator className="my-8" /> */}
         <div className="container mx-auto text-center text-gray-600">
           © 2024 Beatsflex. All rights reserved.
         </div>

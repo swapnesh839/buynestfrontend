@@ -7,29 +7,30 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Summerheadphhones from "@/assets/Home/Summerheadphhones.png"
 
 export default function ExplorePage() {
   const categories = [
-    { name: "Headphones", icon: "/placeholder.svg" },
-    { name: "Speakers", icon: "/placeholder.svg" },
-    { name: "Earbuds", icon: "/placeholder.svg" },
-    { name: "Accessories", icon: "/placeholder.svg" },
-    { name: "Home Audio", icon: "/placeholder.svg" },
-    { name: "DJ Equipment", icon: "/placeholder.svg" },
+    { name: "Headphones", icon: Summerheadphhones.src },
+    { name: "Speakers", icon: Summerheadphhones.src },
+    { name: "Earbuds", icon: Summerheadphhones.src },
+    { name: "Accessories", icon: Summerheadphhones.src },
+    { name: "Home Audio", icon: Summerheadphhones.src },
+    { name: "DJ Equipment", icon: Summerheadphhones.src },
   ]
 
   const featuredProducts = [
-    { id: 1, name: "Beatsflex Pro Wireless", price: 299.99, image: "/placeholder.svg", rating: 4.8, reviews: 1024 },
-    { id: 2, name: "Beatsflex Studio 3", price: 349.99, image: "/placeholder.svg", rating: 4.7, reviews: 892 },
-    { id: 3, name: "Beatsflex Solo Pro", price: 249.99, image: "/placeholder.svg", rating: 4.6, reviews: 756 },
-    { id: 4, name: "Beatsflex Pill+", price: 179.99, image: "/placeholder.svg", rating: 4.5, reviews: 638 },
+    { id: 1, name: "Beatsflex Pro Wireless", price: 299.99, image: Summerheadphhones.src, rating: 4.8, reviews: 1024 },
+    { id: 2, name: "Beatsflex Studio 3", price: 349.99, image: Summerheadphhones.src, rating: 4.7, reviews: 892 },
+    { id: 3, name: "Beatsflex Solo Pro", price: 249.99, image: Summerheadphhones.src, rating: 4.6, reviews: 756 },
+    { id: 4, name: "Beatsflex Pill+", price: 179.99, image: Summerheadphhones.src, rating: 4.5, reviews: 638 },
   ]
 
   const trendingProducts = [
-    { id: 5, name: "Beatsflex Flex", price: 69.99, image: "/placeholder.svg", rating: 4.4, reviews: 512 },
-    { id: 6, name: "Beatsflex X", price: 299.99, image: "/placeholder.svg", rating: 4.9, reviews: 1280 },
-    { id: 7, name: "Beatsflex EP", price: 129.99, image: "/placeholder.svg", rating: 4.3, reviews: 384 },
-    { id: 8, name: "Beatsflex Powerbeats", price: 149.99, image: "/placeholder.svg", rating: 4.6, reviews: 768 },
+    { id: 5, name: "Beatsflex Flex", price: 69.99, image: Summerheadphhones.src, rating: 4.4, reviews: 512 },
+    { id: 6, name: "Beatsflex X", price: 299.99, image: Summerheadphhones.src, rating: 4.9, reviews: 1280 },
+    { id: 7, name: "Beatsflex EP", price: 129.99, image: Summerheadphhones.src, rating: 4.3, reviews: 384 },
+    { id: 8, name: "Beatsflex Powerbeats", price: 149.99, image: Summerheadphhones.src, rating: 4.6, reviews: 768 },
   ]
 
   return (

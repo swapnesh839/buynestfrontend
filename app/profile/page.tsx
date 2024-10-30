@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 // import Image from 'next/image'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
+import Summerheadphhones from "@/assets/Home/Summerheadphhones.png"
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState("personal-info")
 
@@ -21,7 +21,7 @@ export default function ProfilePage() {
               <div className="relative">
                 {/* <Image width={100} height={100} src="/placeholder.svg" alt="Profile" className="w-24 h-24 rounded-full" /> */}
                 <Avatar className="cursor-pointer w-32 h-32">
-                  <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
+                  <AvatarImage src={Summerheadphhones.src} alt="User" />
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
                 <button className="absolute bottom-0 right-0 bg-[#00B8A9] text-white p-1 rounded-full">
