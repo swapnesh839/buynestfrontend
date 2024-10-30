@@ -2,20 +2,24 @@
 import * as React from "react"
 import needhelpimg from "@/assets/NeedHelp.png"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Headphones, Home, Compass, Heart, ShoppingCart, Store, User, Clock, MessageSquare, Settings, Plus } from "lucide-react"
+import { Home, Compass, Heart, ShoppingCart, Store, User, Clock, MessageSquare, Settings, Plus } from "lucide-react"
 import Link from "next/link"
 import { NavConstraints } from "@/Constraints/NavConstraints"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import img from "@/app/favicon.ico"
 
 export default function Sidebar() {
+  const router = useRouter()
   return (
     <div className={"h-screen min-w-[240px] max-w-[300px] border-r bg-white hidden md:flex flex-col"}>
       <div className="p-4 border-b bg-[#00a7a7] text-white">
-        <div className="flex items-center gap-2">
-          <Headphones size={26} />
-          <h1 className="text-xl font-semibold">Beatsflex.</h1>
+        <div onClick={()=>{router.push(NavConstraints.home.path)}} className="flex items-center gap-2">
+          {/* <Headphones size={26} /> */}
+          <Image src={img} alt="Beatsflex" className="w-8 h-8"/>
+          <h1 className="text-xl font-semibold cursor-pointer">Beatsflex.</h1>
         </div>
       </div>
       <ScrollArea className="h-full">
