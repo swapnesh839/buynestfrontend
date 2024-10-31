@@ -1,4 +1,4 @@
-# 📦 E-Commerce Website Structure & Role-Based Access Guide
+# 📦Website Structure & Role-Based Access Guide
 
 ## Overview
 
