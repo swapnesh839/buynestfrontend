@@ -352,7 +352,7 @@ export default function usersignup() {
                 <AlertCircle className="h-4 w-4" />
                 <AlertTitle>Important</AlertTitle>
                 <AlertDescription>
-                  By clicking "Complete Registration", you agree to our Terms of Service and Privacy Policy.
+                  By clicking &quot;Complete Registration&quot;, you agree to our Terms of Service and Privacy Policy.
                 </AlertDescription>
               </Alert>
             </CardContent>
