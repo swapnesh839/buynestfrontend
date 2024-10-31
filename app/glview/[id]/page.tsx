@@ -246,7 +246,7 @@ const Page = () => {
         <div className="w-full h-full fixed inset-0 z-30 bg-black cursor-grab">
             <Canvas
 
-                className="fixed top-0 left-0 right-0 bottom-0  w-full h-full -z-10"
+                className="fixed top-0 left-0 right-0 bottom-0  w-full h-full"
                 camera={{ position: [2, 2, 3] }}
             >
                 <mesh>
