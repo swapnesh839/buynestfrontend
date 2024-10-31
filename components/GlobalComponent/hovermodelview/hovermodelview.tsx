@@ -13,7 +13,7 @@ const Hovermodelview = ({ id }: { id: string | number }) => {
     }, [productref, id])
     return (
         <div className="h-full w-full justify-center align-middle cursor-grab z-50 " ref={productref}>
-            <Suspense fallback={<div className="h-full w-full flex justify-center align-middle">loading</div>}>
+            <Suspense fallback={<div className="h-full w-full flex justify-center align-middle bg-black text-white">loading</div>}>
                 <Canvas
                     className="h-full w-full bg-gray-600/5 rounded-sm"
                     camera={{ position: [2, 2, 3] }}
