@@ -150,7 +150,7 @@ export default function SavedItemsPage() {
                           className="rounded-md"
                         />
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="min-w-[200px]">
                         <h3 className="font-medium">{item.name}</h3>
                         <p className="text-sm text-gray-500">Color: {item.color}</p>
                         <p className="text-sm text-gray-500">
@@ -161,7 +161,7 @@ export default function SavedItemsPage() {
                           )}
                         </p>
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="min-w-[200px]">
                         {item.discount > 0 ? (
                           <div>
                             <span className="text-lg font-bold text-red-600">
