@@ -15,21 +15,6 @@ export default function PurchaseHistoryPage() {
 
   return (
     <div className="p-3">
-      {/* <header className="bg-[#00B8A9] shadow-sm">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="text-white mr-2 text-2xl">🎧</span>
-            <h1 className="text-2xl font-bold text-white">Beatsflex.</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" className="bg-white text-[#00B8A9] hover:bg-gray-100">Become a Seller</Button>
-            <Mail className="w-6 h-6 text-white" />
-            <Bell className="w-6 h-6 text-white" />
-            <div className="w-8 h-8 bg-white rounded-full"></div>
-          </div>
-        </div>
-      </header> */}
-
       <main className="bg-white border shadow rounded-md p-3">
           
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Purchase History</h2>
@@ -87,15 +72,15 @@ export default function PurchaseHistoryPage() {
                 {orders.map((order) => (
                   <>
                     <TableRow key={order.id} className="cursor-pointer" onClick={() => toggleOrderDetails(order.id)}>
-                      <TableCell>{order.id}</TableCell>
-                      <TableCell>{order.date}</TableCell>
-                      <TableCell>${order.total.toFixed(2)}</TableCell>
+                      <TableCell className='min-w-[140px]'>{order.id}</TableCell>
+                      <TableCell className='min-w-[120px]'>{order.date}</TableCell>
+                      <TableCell className='min-w-[120px]'>${order.total.toFixed(2)}</TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(order.status)}`}>
                           {order.status}
                         </span>
                       </TableCell>
-                      <TableCell>
+                      <TableCell className='min-w-[120px]'>
                         <div className="flex items-center space-x-2">
                           <Button variant="outline" size="sm">
                             <Eye className="w-4 h-4 mr-1" /> View
@@ -110,7 +95,7 @@ export default function PurchaseHistoryPage() {
                     </TableRow>
                     {expandedOrder === order.id && (
                       <TableRow>
-                        <TableCell colSpan={5}>
+                        <TableCell className='min-w-[120px]' colSpan={5}>
                           <div className="bg-gray-50 p-4 rounded-lg">
                             <h4 className="font-semibold mb-2">Order Details</h4>
                             <ul className="space-y-2">
