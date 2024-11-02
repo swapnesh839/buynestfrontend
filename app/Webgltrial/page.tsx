@@ -7,6 +7,8 @@ import { MeshReflectorMaterial, OrbitControls, PerspectiveCamera, useGLTF, useHe
 import { Mesh, Object3D, SpotLight, SpotLightHelper } from "three";
 // import { useParams, useRouter } from "next/navigation";
 import { ArrowLeftCircle } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 // import { LinearEncoding } from "@react-three/drei/helpers/deprecated";
 interface ModelProps {
   MODEL_PATH: string
@@ -17,6 +19,7 @@ const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v173054208
 
 const Page = () => {
   const containerRef2 = useRef<HTMLDivElement>(null)
+  const Router = useRouter()
   const ModelComponent: React.FC<ModelProps> = ({ MODEL_PATH }) => {
     const ref = useRef<Mesh>(null);
     const [dimention, setdimention] = useState<THREE.Vector3 | null>(null)
@@ -236,6 +239,9 @@ const Page = () => {
     <div ref={containerRef2} className="w-full h-full fixed top-0 text-white left-0 right-0 bottom-0 z-[1000] bg-black cursor-grab">
       <div onClick={() => { }} className="absolute bg-cyan-300 cursor-pointer p-1 text-black rounded-full z-[1002] top-[2%] left-[2%] flex justify-center align-middle">
         <ArrowLeftCircle />
+      </div>
+      <div className='absolute w-full flex justify-center align-middle bottom-0 left-0 z-[1001]'>
+        <Button onClick={()=>{Router.push("/xrview")}}>XR view</Button>
       </div>
       <Canvas
         className="w-full h-full"
