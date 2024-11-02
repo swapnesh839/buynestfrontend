@@ -260,9 +260,9 @@ const Page = () => {
             mixStrength={80}
             mixContrast={1}
             resolution={1024}
-            metalness={1}
-            // reflectorOffset={0.2}
-            roughness={.4} />
+            metalness={0.5}
+            reflectorOffset={0.2}
+            roughness={.8} />
         </mesh>
         <OrbitControls autoRotate={true} autoRotateSpeed={0.2} minDistance={2} maxDistance={10} maxPolarAngle={Math.PI / 2.4} minPolarAngle={Math.PI / 9} />
         <Model MODEL_PATH={MODEL_PATH} />

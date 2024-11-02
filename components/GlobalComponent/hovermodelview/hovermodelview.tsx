@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useEffect, useRef, useState } from "react"
+import React, { Suspense, useEffect, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
 import { useGLTF, Environment, OrbitControls } from "@react-three/drei"
 import { Loader2 } from "lucide-react"
@@ -9,48 +9,51 @@ import { Loader2 } from "lucide-react"
 const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730315920/monitor_speaker_jdmuzt.glb"
 // const MODEL_PATH = "/glb/sony_bluetooth_speaker.glb"
 
-const debounce = <F extends (...args: unknown[]) => void>(func: F, delay: number): ((...args: Parameters<F>) => void) => {
-  let timeoutId: NodeJS.Timeout
-  return (...args: Parameters<F>) => {
-    clearTimeout(timeoutId)
-    timeoutId = setTimeout(() => func(...args), delay)
-  }
-}
+// const debounce = <F extends (...args: unknown[]) => void>(func: F, delay: number): ((...args: Parameters<F>) => void) => {
+//   let timeoutId: NodeJS.Timeout
+//   return (...args: Parameters<F>) => {
+//     clearTimeout(timeoutId)
+//     timeoutId = setTimeout(() => func(...args), delay)
+//   }
+// }
 
-interface ModelProps {
-  scale: number
-}
+// interface ModelProps {
+//   scale: number
+// }
 
-const Model: React.FC<ModelProps> = ({ scale }) => {
+const Model: React.FC = () => {
   const { scene } = useGLTF(MODEL_PATH)
-  return <group scale={scale}>
+  useEffect(() => {
+    scene.scale.set(100, 100, 100)
+  }, [scene])
+  return <group>
     <primitive object={scene} />
   </group>
 }
 
 interface HoverModelViewProps {
-  id: string|number
+  id: string | number
 }
 
 const HoverModelView: React.FC<HoverModelViewProps> = ({ id }) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [scale, setScale] = useState<number>(1)
+  // const [scale, setScale] = useState<number>(1)
 
   useEffect(() => {
-    const updateScale = () => {
-      if (containerRef.current) {
-        const { width } = containerRef.current.getBoundingClientRect()
-        const w = 300
-        const minDimension = Math.min(width, w)
-        setScale(minDimension * .8)
-      }
-    }
+    // const updateScale = () => {
+    //   if (containerRef.current) {
+    //     const { width } = containerRef.current.getBoundingClientRect()
+    //     const w = 300
+    //     const minDimension = Math.min(width, w)
+    //     setScale(minDimension * .8)
+    //   }
+    // }
 
-    updateScale()
-    const handleResize = debounce(updateScale, 100)
-    window.addEventListener("resize", handleResize)
+    // updateScale()
+    // const handleResize = debounce(updateScale, 100)
+    // window.addEventListener("resize", handleResize)
 
-    return () => window.removeEventListener("resize", handleResize)
+    // return () => window.removeEventListener("resize", handleResize)
   }, [id])
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
@@ -76,13 +79,14 @@ const HoverModelView: React.FC<HoverModelViewProps> = ({ id }) => {
         //   gl.setClearColor('#f3f4f6') 
         // }}
         >
-          <Model scale={scale} />
+          <Model />
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
           <OrbitControls
             autoRotate
-            autoRotateSpeed={0.5}
-            minDistance={2}
+            enableZoom={false}
+            autoRotateSpeed={2}
+            minDistance={3}
             maxDistance={10}
             maxPolarAngle={Math.PI / 2.2}
             minPolarAngle={Math.PI / 6}
