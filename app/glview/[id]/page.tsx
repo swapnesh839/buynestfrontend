@@ -3,7 +3,8 @@
 import * as THREE from 'three';
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { MeshReflectorMaterial, OrbitControls, PerspectiveCamera, useGLTF, useHelper } from "@react-three/drei";
+import { OrbitControls, useGLTF, useHelper } from "@react-three/drei";
+// import { MeshReflectorMaterial, OrbitControls, PerspectiveCamera, useGLTF, useHelper } from "@react-three/drei";
 import { Mesh, Object3D, SpotLight, SpotLightHelper } from "three";
 // import { useParams, useRouter } from "next/navigation";
 import { ArrowLeftCircle } from "lucide-react";
@@ -12,8 +13,8 @@ interface ModelProps {
   MODEL_PATH: string
 }
 
-const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730542084/headphones_ualmu2.glb"
-// const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730315920/monitor_speaker_jdmuzt.glb"
+// const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730542084/headphones_ualmu2.glb"
+const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730315920/monitor_speaker_jdmuzt.glb"
 
 const Page = () => {
   const containerRef2 = useRef<HTMLDivElement>(null)
@@ -127,8 +128,6 @@ const Page = () => {
     return (
       <>
         <primitive ref={ref} object={scene} />
-        <color attach="background" args={[0, 0, 0]} />
-
         <spotLight castShadow
           // ref={spotLightRef}
           penumbra={1}
@@ -199,7 +198,7 @@ const Page = () => {
           shadow-bias={-0.0001}
           color={[0.14, 0.5, 1]}
           position={[0, 5, -5]}
-          intensity={lightintensity}
+          intensity={lightintensity*4}
         />
         <spotLight castShadow
           // ref={spotLightRef}
@@ -207,7 +206,7 @@ const Page = () => {
           shadow-bias={-0.0001}
           color={[0.14, 0.5, 1]}
           position={[5, 5, 0]}
-          intensity={lightintensity}
+          intensity={lightintensity*2}
         />
         <spotLight castShadow
           // ref={spotLightRef}
@@ -215,7 +214,7 @@ const Page = () => {
           shadow-bias={-0.0001}
           color={[0.14, 0.5, 1]}
           position={[-5, 5, 0]}
-          intensity={lightintensity}
+          intensity={lightintensity*2}
         />
         <spotLight castShadow
           // ref={spotLightRef}
@@ -223,7 +222,31 @@ const Page = () => {
           shadow-bias={-0.0001}
           color={[0.14, 0.5, 1]}
           position={[0, 5, 0]}
-          intensity={lightintensity}
+          intensity={lightintensity*2}
+        />
+        <spotLight castShadow
+          // ref={spotLightRef}
+          penumbra={1}
+          shadow-bias={-0.0001}
+          color={[1,1,1]}
+          position={[0, -5, 0]}
+          intensity={lightintensity*20}
+        />
+        <spotLight castShadow
+          // ref={spotLightRef}
+          penumbra={1}
+          shadow-bias={-0.0001}
+          color={[1,1,1]}
+          position={[3, 1, 0]}
+          intensity={lightintensity*6}
+        />
+        <spotLight castShadow
+          // ref={spotLightRef}
+          penumbra={1}
+          shadow-bias={-0.0001}
+          color={[1,1,1]}
+          position={[-3, 1, 0]}
+          intensity={lightintensity*6}
         />
 
       </>
@@ -233,19 +256,21 @@ const Page = () => {
 
   // const { id } = params;
   return (
-    <div ref={containerRef2} className="w-full h-full fixed top-0 text-white left-0 right-0 bottom-0 z-[1000] bg-black cursor-grab">
+    <div ref={containerRef2} className="w-full h-full fixed top-0 text-white left-0 right-0 bottom-0 z-[1000] bg-white cursor-grab">
       <div onClick={() => { }} className="absolute bg-cyan-300 cursor-pointer p-1 text-black rounded-full z-[1002] top-[2%] left-[2%] flex justify-center align-middle">
         <ArrowLeftCircle />
       </div>
       <Canvas
         className="w-full h-full"
+        camera={{ position: [1,1,2] }}
       >
-        <PerspectiveCamera
+        {/* <color attach="background" args={[0, 0, 0]} /> */}
+        {/* <PerspectiveCamera
           makeDefault
           position={[0, 0, 0]}
-          fov={50} />
-        <ambientLight intensity={.05} />
-        <mesh rotation-x={-Math.PI * 0.5} castShadow receiveShadow>
+          fov={50} /> */}
+        {/* <ambientLight intensity={.2} /> */}
+        {/* <mesh rotation-x={-Math.PI * 0.5} castShadow receiveShadow>
           <planeGeometry args={[60, 60]} />
           <MeshReflectorMaterial
             envMapIntensity={0}
@@ -263,8 +288,8 @@ const Page = () => {
             metalness={1}
             // reflectorOffset={0.2}
             roughness={.4} />
-        </mesh>
-        <OrbitControls autoRotate={true} autoRotateSpeed={0.2} minDistance={2} maxDistance={10} maxPolarAngle={Math.PI / 2.4} minPolarAngle={Math.PI / 9} />
+        </mesh> */}
+        <OrbitControls autoRotate={true} autoRotateSpeed={0.2} maxDistance={4} minDistance={.5}   />
         <Model MODEL_PATH={MODEL_PATH} />
       </Canvas>
     </div>
