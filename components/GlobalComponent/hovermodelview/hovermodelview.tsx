@@ -29,7 +29,7 @@ const Model: React.FC<ModelProps> = ({ scale }) => {
 }
 
 interface HoverModelViewProps {
-  id: string
+  id: string|number
 }
 
 const HoverModelView: React.FC<HoverModelViewProps> = ({ id }) => {
