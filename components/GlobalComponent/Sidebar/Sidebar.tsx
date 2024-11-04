@@ -14,7 +14,7 @@ import img from "@/app/favicon.ico"
 import { Plus } from "lucide-react"
 
 export default function Sidebar() {
-  const usertype = "user"
+  // const usertype = "user"
   const router = useRouter()
   return (
     <div className={"h-screen min-w-[240px] max-w-[300px] border-r bg-white hidden md:flex flex-col"}>
@@ -26,8 +26,8 @@ export default function Sidebar() {
       </div>
       <ScrollArea className="h-full">
         <nav className="flex flex-col gap-1">
-          {Object.entries(NavConstraints.UserNav).map(([key, { icon, path: href, id, UserType }]) => {
-            if (UserType.includes(usertype)) {
+          {Object.entries(NavConstraints.AdminNav).map(([key, { icon, path: href, id, UserType }]) => {
+            if (UserType) {
               return (
                 <NavItem
                   key={id} // Use id as the key for better performance and avoiding duplication issues
