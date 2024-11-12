@@ -1,22 +1,43 @@
 "use client"
 import Image from 'next/image';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { NavConstraints } from '@/Constraints/NavConstraints';
 import Unauthorizedimg from "@/assets/Unauthorized.png"
 
 // type AllowedUserType = 'admin' | 'superadmin';
 
 interface AuthbashedRoutingtype {
-  UserAccess?: ['all'] |['admin' | 'superadmin']|["admin"]|["user"]|["user","subadmin"]|["superadmin","admin","subadmin"];
+  usertype: "user" | "admin" | "superadmin" 
+  // | "subadmin",
   children: React.ReactNode;
 }
-const AuthbashedRouting = ({ children, UserAccess = ["all"] }: AuthbashedRoutingtype) => {
-  console.log(children, UserAccess);
+const authobj = {
+  user:"UserNav",
+  admin:"AdminNav",
+  superadmin:"SuperAdminNav"
+}
+const AuthbashedRouting = ({ children, usertype }: AuthbashedRoutingtype) => {
+  const [isAuthorized, setIsauthorized] = useState(false)
+  console.log(children, usertype);
+  useEffect(() => {
+    if (authobj[usertype] in NavConstraints) {
+      console.log(`Navigation for ${usertype}:`, authobj[usertype]);
+      setIsauthorized(true); 
+    } else {
+      console.log("User type not authorized");
+      setIsauthorized(false);
+    }
+  }, [usertype]);
 
   const Authpage = () => {
     return (
-      <div className='flex items-center justify-center h-screen w-full fixed top-0 left-0'>
-        <Image className='w-3/4 max-w-96' src={Unauthorizedimg} alt="Unauthorized" width={500} height={300} />
-      </div>
+      <>
+        {isAuthorized ?
+          children :
+          <div className='flex items-center justify-center h-screen w-full z-[1001] fixed top-0 left-0'>
+            <Image className='w-3/4 max-w-96 min-w-40' src={Unauthorizedimg} alt="Unauthorized" width={500} height={300} />
+          </div>}
+      </>
     )
   }
 
@@ -28,4 +49,4 @@ const AuthbashedRouting = ({ children, UserAccess = ["all"] }: AuthbashedRouting
   )
 }
 
-export default AuthbashedRouting
+export default React.memo(AuthbashedRouting)

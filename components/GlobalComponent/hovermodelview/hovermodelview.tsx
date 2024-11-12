@@ -6,7 +6,7 @@ import { useGLTF, Environment, OrbitControls } from "@react-three/drei"
 import { Loader2 } from "lucide-react"
 // import { Group } from "three"
 
-const MODEL_PATH = "https://res.cloudinary.com/di7boajee/image/upload/v1730315920/monitor_speaker_jdmuzt.glb"
+const MODEL_PATH = "https://res.cloudinary.com/buynestbacknd/image/upload/v1730315920/monitor_speaker_jdmuzt.glb"
 // const MODEL_PATH = "/glb/sony_bluetooth_speaker.glb"
 
 // const debounce = <F extends (...args: unknown[]) => void>(func: F, delay: number): ((...args: Parameters<F>) => void) => {

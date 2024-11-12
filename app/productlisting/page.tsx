@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { Search,  MoreVertical, AlertTriangle, CheckCircle, Edit, Eye, RefreshCw, Plus, Upload } from 'lucide-react'
+import { Search, MoreVertical, AlertTriangle, CheckCircle, Edit, Eye, RefreshCw, Upload } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -47,7 +47,7 @@ export default function SellerProductManagement() {
   const [currentPage] = useState(1)
   const productsPerPage = 10
 
-  const filteredProducts = products.filter(product => 
+  const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (categoryFilter === 'all' || product.category === categoryFilter) &&
     (statusFilter === 'all' || product.status === statusFilter)
@@ -58,8 +58,8 @@ export default function SellerProductManagement() {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct)
 
   const handleProductSelection = (productId: string) => {
-    setSelectedProducts(prev => 
-      prev.includes(productId) 
+    setSelectedProducts(prev =>
+      prev.includes(productId)
         ? prev.filter(id => id !== productId)
         : [...prev, productId]
     )
@@ -79,8 +79,8 @@ export default function SellerProductManagement() {
   }
 
   const handleProductUpdate = (updatedProduct: Product) => {
-    setProducts(prevProducts => 
-      prevProducts.map(product => 
+    setProducts(prevProducts =>
+      prevProducts.map(product =>
         product.id === updatedProduct.id ? updatedProduct : product
       )
     )
@@ -89,8 +89,8 @@ export default function SellerProductManagement() {
   }
 
   const handleProductSubmit = (productId: string) => {
-    setProducts(prevProducts => 
-      prevProducts.map(product => 
+    setProducts(prevProducts =>
+      prevProducts.map(product =>
         product.id === productId
           ? { ...product, status: 'Pending Approval', lastUpdated: new Date().toISOString().split('T')[0] }
           : product
@@ -120,219 +120,219 @@ export default function SellerProductManagement() {
 
   return (
     <div className="container mx-auto p-3">
-      <div className='p-3 bg-white'>
-      <h1 className="text-3xl font-bold mb-6">Seller Product Management</h1>
-      
-      <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Draft Products</CardTitle>
-            <Edit className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{draftCount}</div>
-            <p className="text-xs text-muted-foreground">Ready to submit</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Approval</CardTitle>
-            <AlertTriangle className="h-4 w-4 text-yellow-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{pendingCount}</div>
-            <p className="text-xs text-muted-foreground">Awaiting admin review</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Changes Requested</CardTitle>
-            <RefreshCw className="h-4 w-4 text-blue-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{changesRequestedCount}</div>
-            <p className="text-xs text-muted-foreground">Require updates</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Approved Products</CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{approvedCount}</div>
-            <p className="text-xs text-muted-foreground">Live on the platform</p>
-          </CardContent>
-        </Card>
-      </div>
+      <div className='p-3 bg-white rounded-md shadow-md border'>
+        <h1 className="text-3xl font-bold mb-6">Seller Product Management</h1>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>Product Catalog</CardTitle>
-          <CardDescription>Manage and update your product listings</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Tabs defaultValue="all">
-            <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="draft">Draft</TabsTrigger>
-              <TabsTrigger value="pending">Pending</TabsTrigger>
-              <TabsTrigger value="changes">Changes Requested</TabsTrigger>
-              <TabsTrigger value="approved">Approved</TabsTrigger>
-            </TabsList>
-            <TabsContent value="all">
-              <ProductTable 
-                products={currentProducts}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                categoryFilter={categoryFilter}
-                setCategoryFilter={setCategoryFilter}
-                statusFilter={statusFilter}
-                setStatusFilter={setStatusFilter}
-                selectedProducts={selectedProducts}
-                handleProductSelection={handleProductSelection}
-                handleSelectAllProducts={handleSelectAllProducts}
-                handleBulkAction={handleBulkAction}
-                setSelectedProduct={setSelectedProduct}
-                handleProductSubmit={handleProductSubmit}
-                getStatusBadge={getStatusBadge}
-              />
-            </TabsContent>
-            {/* Repeat similar TabsContent for other tabs, filtering products by status */}
-          </Tabs>
-          <div className="mt-4 flex justify-center">
-            {/* <Pagination
+        <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Draft Products</CardTitle>
+              <Edit className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{draftCount}</div>
+              <p className="text-xs text-muted-foreground">Ready to submit</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Pending Approval</CardTitle>
+              <AlertTriangle className="h-4 w-4 text-yellow-500" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{pendingCount}</div>
+              <p className="text-xs text-muted-foreground">Awaiting admin review</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Changes Requested</CardTitle>
+              <RefreshCw className="h-4 w-4 text-blue-500" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{changesRequestedCount}</div>
+              <p className="text-xs text-muted-foreground">Require updates</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Approved Products</CardTitle>
+              <CheckCircle className="h-4 w-4 text-green-500" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{approvedCount}</div>
+              <p className="text-xs text-muted-foreground">Live on the platform</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle>Product Catalog</CardTitle>
+            <CardDescription>Manage and update your product listings</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Tabs defaultValue="all">
+              <TabsList className="grid w-full grid-cols-5">
+                <TabsTrigger value="all">All</TabsTrigger>
+                <TabsTrigger value="draft">Draft</TabsTrigger>
+                <TabsTrigger value="pending">Pending</TabsTrigger>
+                <TabsTrigger value="changes">Changes Requested</TabsTrigger>
+                <TabsTrigger value="approved">Approved</TabsTrigger>
+              </TabsList>
+              <TabsContent value="all">
+                <ProductTable
+                  products={currentProducts}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  categoryFilter={categoryFilter}
+                  setCategoryFilter={setCategoryFilter}
+                  statusFilter={statusFilter}
+                  setStatusFilter={setStatusFilter}
+                  selectedProducts={selectedProducts}
+                  handleProductSelection={handleProductSelection}
+                  handleSelectAllProducts={handleSelectAllProducts}
+                  handleBulkAction={handleBulkAction}
+                  setSelectedProduct={setSelectedProduct}
+                  handleProductSubmit={handleProductSubmit}
+                  getStatusBadge={getStatusBadge}
+                />
+              </TabsContent>
+              {/* Repeat similar TabsContent for other tabs, filtering products by status */}
+            </Tabs>
+            <div className="mt-4 flex justify-center">
+              {/* <Pagination
               totalPages={Math.ceil(filteredProducts.length / productsPerPage)}
               onPageChange={setCurrentPage}
             /> */}
-          </div>
-        </CardContent>
-      </Card>
-
-      <Dialog open={!!selectedProduct} onOpenChange={() => { setSelectedProduct(null); setEditMode(false); }}>
-        <DialogContent className="sm:max-w-[625px]">
-          <DialogHeader>
-            <DialogTitle>{editMode ? 'Edit Product' : 'Product Details'}</DialogTitle>
-            <DialogDescription>
-              {editMode ? 'Make changes to your product here.' : 'Review your product details and admin feedback.'}
-            </DialogDescription>
-          </DialogHeader>
-          {selectedProduct && (
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="name" className="text-right font-bold">Name:</label>
-                {editMode ? (
-                  <Input
-                    id="name"
-                    value={selectedProduct.name}
-                    onChange={(e) => setSelectedProduct({ ...selectedProduct, name: e.target.value })}
-                    className="col-span-3"
-                  />
-                ) : (
-                  <span className="col-span-3">{selectedProduct.name}</span>
-                )}
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="category" className="text-right font-bold">Category:</label>
-                {editMode ? (
-                  <Select
-                    value={selectedProduct.category}
-                    onValueChange={(value) => setSelectedProduct({ ...selectedProduct, category: value })}
-                  >
-                    <SelectTrigger className="col-span-3">
-                      <SelectValue placeholder="Select category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Audio">Audio</SelectItem>
-                      <SelectItem value="Wearables">Wearables</SelectItem>
-                      {/* Add more categories as needed */}
-                    </SelectContent>
-                  </Select>
-                ) : (
-                  <span className="col-span-3">{selectedProduct.category}</span>
-                )}
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="price" className="text-right font-bold">Price:</label>
-                {editMode ? (
-                  <Input
-                    id="price"
-                    type="number"
-                    value={selectedProduct.price}
-                    onChange={(e) => setSelectedProduct({ ...selectedProduct, price: parseFloat(e.target.value) })}
-                    className="col-span-3"
-                  />
-                ) : (
-                  <span className="col-span-3">${selectedProduct.price.toFixed(2)}</span>
-                )}
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <label htmlFor="stock" className="text-right font-bold">Stock:</label>
-                {editMode ? (
-                  <Input
-                    id="stock"
-                    type="number"
-                    value={selectedProduct.stock}
-                    onChange={(e) => setSelectedProduct({ ...selectedProduct, stock: parseInt(e.target.value) })}
-                    className="col-span-3"
-                  />
-                ) : (
-                  <span className="col-span-3">{selectedProduct.stock}</span>
-                )}
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <span className="text-right  font-bold">Status:</span>
-                <span className="col-span-3">{getStatusBadge(selectedProduct.status)}</span>
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <span className="text-right font-bold">Last Updated:</span>
-                <span className="col-span-3">{selectedProduct.lastUpdated}</span>
-              </div>
-              {selectedProduct.adminFeedback && (
-                <div className="grid grid-cols-4 items-start gap-4">
-                  <span className="text-right font-bold">Admin Feedback:</span>
-                  <p className="col-span-3 text-sm text-muted-foreground">{selectedProduct.adminFeedback}</p>
-                </div>
-              )}
             </div>
-          )}
-          <DialogFooter className="sm:justify-start">
-            {editMode ? (
-              <>
-                <Button
-                  type="button"
-                  onClick={() => handleProductUpdate(selectedProduct!)}
-                  className="bg-[#00A19C] hover:bg-[#008B87] text-white"
-                >
-                  Save Changes
-                </Button>
-                <Button type="button" variant="outline" onClick={() => setEditMode(false)}>
-                  Cancel
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button
-                  type="button"
-                  onClick={() => setEditMode(true)}
-                  className="bg-[#00A19C] hover:bg-[#008B87] text-white"
-                >
-                  Edit Product
-                </Button>
-                {selectedProduct?.status !== 'Approved' && (
+          </CardContent>
+        </Card>
+
+        <Dialog open={!!selectedProduct} onOpenChange={() => { setSelectedProduct(null); setEditMode(false); }}>
+          <DialogContent className="sm:max-w-[625px]">
+            <DialogHeader>
+              <DialogTitle>{editMode ? 'Edit Product' : 'Product Details'}</DialogTitle>
+              <DialogDescription>
+                {editMode ? 'Make changes to your product here.' : 'Review your product details and admin feedback.'}
+              </DialogDescription>
+            </DialogHeader>
+            {selectedProduct && (
+              <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <label htmlFor="name" className="text-right font-bold">Name:</label>
+                  {editMode ? (
+                    <Input
+                      id="name"
+                      value={selectedProduct.name}
+                      onChange={(e) => setSelectedProduct({ ...selectedProduct, name: e.target.value })}
+                      className="col-span-3"
+                    />
+                  ) : (
+                    <span className="col-span-3">{selectedProduct.name}</span>
+                  )}
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <label htmlFor="category" className="text-right font-bold">Category:</label>
+                  {editMode ? (
+                    <Select
+                      value={selectedProduct.category}
+                      onValueChange={(value) => setSelectedProduct({ ...selectedProduct, category: value })}
+                    >
+                      <SelectTrigger className="col-span-3">
+                        <SelectValue placeholder="Select category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Audio">Audio</SelectItem>
+                        <SelectItem value="Wearables">Wearables</SelectItem>
+                        {/* Add more categories as needed */}
+                      </SelectContent>
+                    </Select>
+                  ) : (
+                    <span className="col-span-3">{selectedProduct.category}</span>
+                  )}
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <label htmlFor="price" className="text-right font-bold">Price:</label>
+                  {editMode ? (
+                    <Input
+                      id="price"
+                      type="number"
+                      value={selectedProduct.price}
+                      onChange={(e) => setSelectedProduct({ ...selectedProduct, price: parseFloat(e.target.value) })}
+                      className="col-span-3"
+                    />
+                  ) : (
+                    <span className="col-span-3">${selectedProduct.price.toFixed(2)}</span>
+                  )}
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <label htmlFor="stock" className="text-right font-bold">Stock:</label>
+                  {editMode ? (
+                    <Input
+                      id="stock"
+                      type="number"
+                      value={selectedProduct.stock}
+                      onChange={(e) => setSelectedProduct({ ...selectedProduct, stock: parseInt(e.target.value) })}
+                      className="col-span-3"
+                    />
+                  ) : (
+                    <span className="col-span-3">{selectedProduct.stock}</span>
+                  )}
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <span className="text-right  font-bold">Status:</span>
+                  <span className="col-span-3">{getStatusBadge(selectedProduct.status)}</span>
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <span className="text-right font-bold">Last Updated:</span>
+                  <span className="col-span-3">{selectedProduct.lastUpdated}</span>
+                </div>
+                {selectedProduct.adminFeedback && (
+                  <div className="grid grid-cols-4 items-start gap-4">
+                    <span className="text-right font-bold">Admin Feedback:</span>
+                    <p className="col-span-3 text-sm text-muted-foreground">{selectedProduct.adminFeedback}</p>
+                  </div>
+                )}
+              </div>
+            )}
+            <DialogFooter className="sm:justify-start">
+              {editMode ? (
+                <>
                   <Button
                     type="button"
-                    onClick={() => handleProductSubmit(selectedProduct!.id)}
-                    variant="outline"
+                    onClick={() => handleProductUpdate(selectedProduct!)}
+                    className="bg-[#00A19C] hover:bg-[#008B87] text-white"
                   >
-                    Submit for Approval
+                    Save Changes
                   </Button>
-                )}
-              </>
-            )}
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+                  <Button type="button" variant="outline" onClick={() => setEditMode(false)}>
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    type="button"
+                    onClick={() => setEditMode(true)}
+                    className="bg-[#00A19C] hover:bg-[#008B87] text-white"
+                  >
+                    Edit Product
+                  </Button>
+                  {selectedProduct?.status !== 'Approved' && (
+                    <Button
+                      type="button"
+                      onClick={() => handleProductSubmit(selectedProduct!.id)}
+                      variant="outline"
+                    >
+                      Submit for Approval
+                    </Button>
+                  )}
+                </>
+              )}
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   )
@@ -407,13 +407,13 @@ function ProductTable({
             </SelectContent>
           </Select>
         </div>
-        <div className="flex space-x-2 w-full md:w-auto">
-          <Button className="w-full md:w-auto bg-[#00A19C] hover:bg-[#008B87]">
-            <Plus className="mr-2 h-4 w-4" /> Add New Product
+        <div className="grid grid-cols-2 gap-1 p-2 w-full ">
+          <Button className=" bg-[#00A19C] hover:bg-[#008B87]">
+             Add Product
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="w-full md:w-auto">Bulk Actions</Button>
+              <Button variant="outline" className="">Bulk Actions</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem onSelect={() => handleBulkAction('Delete')}>Delete Selected</DropdownMenuItem>

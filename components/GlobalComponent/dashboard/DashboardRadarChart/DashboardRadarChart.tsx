@@ -4,17 +4,17 @@ import React from 'react';
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis,Radar, Legend, Tooltip } from 'recharts';
 
 interface DataItem {
-  subject: string;
+  city: string;
   sell?: number;
   fullMark: number;
 }
 
 const data: DataItem[] = [
-  { subject: "Bhubaneswar", sell: 210, fullMark: 150 },
-  { subject: "Delhi", sell: 10, fullMark: 150 },
-  { subject: "Bangalore", sell: 160, fullMark: 150 },
-  { subject: "Hydrabad", sell: 180, fullMark: 150 },
-  { subject: "Jaipur", sell: 140, fullMark: 150 }
+  { city: "Bhubaneswar", sell: 210, fullMark: 150 },
+  { city: "Delhi", sell: 10, fullMark: 150 },
+  { city: "Bangalore", sell: 160, fullMark: 150 },
+  { city: "Hydrabad", sell: 180, fullMark: 150 },
+  { city: "Jaipur", sell: 140, fullMark: 150 }
 ];
 
 export default function DashboardRadarChart() {
@@ -22,7 +22,7 @@ export default function DashboardRadarChart() {
     <ResponsiveContainer className="shadow-md border bg-white rounded-md" width="100%" minHeight={250}>
       <RadarChart outerRadius="60%" data={data}>
         <PolarGrid stroke="grey" />
-        <PolarAngleAxis dataKey="subject" stroke="#334155" />
+        <PolarAngleAxis dataKey="city" stroke="#334155" />
         {/* <PolarRadiusAxis angle={30} domain={[0, 150]} stroke="#94a3b8" /> */}
         <Radar name="Sell" dataKey="sell" stroke="#00A7A7" fill="#00A7A7" fillOpacity={0.6} />
         <Tooltip/>
