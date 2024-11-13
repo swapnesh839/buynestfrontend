@@ -211,10 +211,10 @@ export default function SellerOrderManagement() {
                     <TableHeader>
                         <TableRow>
                             <TableHead><Checkbox checked={selectedOrders.length === currentOrders.length} /></TableHead>
-                            <TableHead onClick={() => handleSort('id')}>Order ID <ArrowUpDown /></TableHead>
-                            <TableHead onClick={() => handleSort('date')}>Date <ArrowUpDown /></TableHead>
+                            <TableHead className='flex' onClick={() => handleSort('id')}><div className='flex justify-center items-center'>Order ID <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
+                            <TableHead onClick={() => handleSort('date')}><div className='flex justify-center items-center'>Date <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
                             <TableHead>Customer</TableHead>
-                            <TableHead onClick={() => handleSort('total')}>Total <ArrowUpDown /></TableHead>
+                            <TableHead onClick={() => handleSort('total')}><div className='flex justify-center items-center'>Total <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
                             <TableHead>Status</TableHead>
                             <TableHead>Actions</TableHead>
                         </TableRow>
