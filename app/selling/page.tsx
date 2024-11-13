@@ -66,11 +66,11 @@ export default function SellingPage() {
                     <Label htmlFor="product-description">Product Description</Label>
                     <Textarea id="product-description" placeholder="Describe your product" />
                   </div>
-                  <div className="grid grid-cols-2">
+                  <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-2">
                       <Label htmlFor="product-price">Price</Label>
                       <div className="relative">
-                        <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                        <DollarSign size={12} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                         <Input id="product-price" type="number" step="0.01" min="0" className="pl-8" />
                       </div>
                     </div>
@@ -155,7 +155,7 @@ export default function SellingPage() {
         <Card>
           <CardContent>
             <Tabs defaultValue="active" className="w-full">
-              <TabsList>
+              <TabsList className="mt-2">
                 <TabsTrigger value="active">Active</TabsTrigger>
                 <TabsTrigger value="pending">Pending</TabsTrigger>
                 <TabsTrigger value="sold">Sold</TabsTrigger>

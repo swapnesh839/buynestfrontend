@@ -23,7 +23,7 @@ interface Notification {
   targetGroup: string
 }
 
-export default function AdminNotificationsManagement() {
+export default function Pushnotification() {
   const [notifications, setNotifications] = useState<Notification[]>([
     { id: '1', type: 'cart', message: 'Don\'t forget items in your cart!', scheduledDate: new Date(), targetGroup: 'all' },
     { id: '2', type: 'offer', message: 'Flash Sale! 50% off on all headphones', scheduledDate: new Date(Date.now() + 86400000), targetGroup: 'premium' },
@@ -90,10 +90,10 @@ export default function AdminNotificationsManagement() {
   }
 
   return (
-    <div className="container mx-auto max-w-4xl p-4">
+    <div className="container mx-auto p-3">
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl font-bold">Notifications Management</CardTitle>
+          <CardTitle className="text-2xl font-bold">Push Notification</CardTitle>
           <CardDescription>Create and manage notifications for your users</CardDescription>
         </CardHeader>
         <CardContent>

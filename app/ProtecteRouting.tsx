@@ -10,8 +10,8 @@ const ProtecteRouting = ({ children }: { children: React.ReactNode }) => {
       <Sidebar />
       <ScrollArea className='w-full'>
         <Header />
-        {children}
-        <Footer/>
+          {children}
+        <Footer />
       </ScrollArea>
     </div>
   )

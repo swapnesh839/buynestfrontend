@@ -1,13 +1,13 @@
 "use client"
 import React, { useState } from 'react'
 import {
-    Search, MoreVertical, ArrowUpDown,  DollarSign,
+    Search, MoreVertical, ArrowUpDown, DollarSign,
     TrendingUp
     , AlertTriangle, ShoppingCart
 } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent,  CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -144,128 +144,127 @@ export default function SellerOrderManagement() {
 
     return (
         <div className="container mx-auto p-3">
-            <div className='p-4 bg-white'>
-            <h1 className="text-3xl font-bold mb-6">Order Management</h1>
+            <div className='p-4 bg-white rounded-md shadow-lg'>
+                <h1 className="text-3xl font-bold mb-6">Order Management</h1>
+                <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4">
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                            <DollarSign className="h-4 w-4 text-muted-foreground" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
+                            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
+                            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">{totalOrders}</div>
+                            <p className="text-xs text-muted-foreground">+15% from last month</p>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Pending Orders</CardTitle>
+                            <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">{pendingOrders}</div>
+                            <p className="text-xs text-muted-foreground">Action required</p>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Top Seller</CardTitle>
+                            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">Wireless Headphones</div>
+                            <p className="text-xs text-muted-foreground">Best-selling product</p>
+                        </CardContent>
+                    </Card>
+                </div>
 
-<div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4">
-    <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-            <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
-            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-            <div className="text-2xl font-bold">{totalOrders}</div>
-            <p className="text-xs text-muted-foreground">+15% from last month</p>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Orders</CardTitle>
-            <AlertTriangle className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-            <div className="text-2xl font-bold">{pendingOrders}</div>
-            <p className="text-xs text-muted-foreground">Action required</p>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Top Seller</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-            <div className="text-2xl font-bold">Wireless Headphones</div>
-            <p className="text-xs text-muted-foreground">Best-selling product</p>
-        </CardContent>
-    </Card>
-</div>
+                <div className="flex items-center gap-2 mb-6">
+                    <Input placeholder="Search orders..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+                    <Select onValueChange={setStatusFilter}>
+                        <SelectTrigger className="w-[180px]">
+                            <SelectValue placeholder="Filter by status" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">All</SelectItem>
+                            <SelectItem value="Pending">Pending</SelectItem>
+                            <SelectItem value="Processing">Processing</SelectItem>
+                            <SelectItem value="Shipped">Shipped</SelectItem>
+                            <SelectItem value="Delivered">Delivered</SelectItem>
+                            <SelectItem value="Cancelled">Cancelled</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <Button><Search className="w-4 h-4 mr-2" />Search</Button>
+                </div>
 
-<div className="flex items-center gap-2 mb-6">
-    <Input placeholder="Search orders..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
-    <Select onValueChange={setStatusFilter}>
-        <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Filter by status" />
-        </SelectTrigger>
-        <SelectContent>
-            <SelectItem value="all">All</SelectItem>
-            <SelectItem value="Pending">Pending</SelectItem>
-            <SelectItem value="Processing">Processing</SelectItem>
-            <SelectItem value="Shipped">Shipped</SelectItem>
-            <SelectItem value="Delivered">Delivered</SelectItem>
-            <SelectItem value="Cancelled">Cancelled</SelectItem>
-        </SelectContent>
-    </Select>
-    <Button><Search className="w-4 h-4 mr-2" />Search</Button>
-</div>
-
-<Table>
-    <TableHeader>
-        <TableRow>
-            <TableHead><Checkbox checked={selectedOrders.length === currentOrders.length}  /></TableHead>
-            <TableHead onClick={() => handleSort('id')}>Order ID <ArrowUpDown /></TableHead>
-            <TableHead onClick={() => handleSort('date')}>Date <ArrowUpDown /></TableHead>
-            <TableHead>Customer</TableHead>
-            <TableHead onClick={() => handleSort('total')}>Total <ArrowUpDown /></TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Actions</TableHead>
-        </TableRow>
-    </TableHeader>
-    <TableBody>
-        {currentOrders.map(order => (
-            <TableRow key={order.id}>
-                <TableCell><Checkbox checked={selectedOrders.includes(order.id)} onCheckedChange={() => handleOrderSelection(order.id)} /></TableCell>
-                <TableCell>{order.id}</TableCell>
-                <TableCell>{order.date}</TableCell>
-                <TableCell>{order.customer}</TableCell>
-                <TableCell>${order.total.toFixed(2)}</TableCell>
-                <TableCell>{getStatusBadge(order.status)}</TableCell>
-                <TableCell>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0"><span className="sr-only">Open menu</span><MoreVertical className="h-4 w-4" /></Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Processing')}>Mark as Processing</DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Shipped')}>Mark as Shipped</DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Delivered')}>Mark as Delivered</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Cancelled')} className="text-red-600">Cancel Order</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </TableCell>
-            </TableRow>
-        ))}
-    </TableBody>
-</Table>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-    <Card>
-        <CardHeader><CardTitle>Sales Trend</CardTitle></CardHeader>
-        <CardContent className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={salesData}><XAxis dataKey="name" /><YAxis /><Tooltip /><Line type="monotone" dataKey="sales" stroke="#8884d8" /></LineChart>
-            </ResponsiveContainer>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader><CardTitle>Top Selling Products</CardTitle></CardHeader>
-        <CardContent className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={topProducts}><XAxis dataKey="name" /><YAxis /><Tooltip /><Bar dataKey="sales" fill="#82ca9d" /></BarChart>
-            </ResponsiveContainer>
-        </CardContent>
-    </Card>
-</div>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead><Checkbox checked={selectedOrders.length === currentOrders.length} /></TableHead>
+                            <TableHead className='flex' onClick={() => handleSort('id')}><div className='flex justify-center items-center'>Order ID <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
+                            <TableHead onClick={() => handleSort('date')}><div className='flex justify-center items-center'>Date <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
+                            <TableHead>Customer</TableHead>
+                            <TableHead onClick={() => handleSort('total')}><div className='flex justify-center items-center'>Total <ArrowUpDown className='ms-1' size={12} /></div></TableHead>
+                            <TableHead>Status</TableHead>
+                            <TableHead>Actions</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {currentOrders.map(order => (
+                            <TableRow key={order.id}>
+                                <TableCell><Checkbox checked={selectedOrders.includes(order.id)} onCheckedChange={() => handleOrderSelection(order.id)} /></TableCell>
+                                <TableCell>{order.id}</TableCell>
+                                <TableCell>{order.date}</TableCell>
+                                <TableCell>{order.customer}</TableCell>
+                                <TableCell>${order.total.toFixed(2)}</TableCell>
+                                <TableCell>{getStatusBadge(order.status)}</TableCell>
+                                <TableCell>
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button variant="ghost" className="h-8 w-8 p-0"><span className="sr-only">Open menu</span><MoreVertical className="h-4 w-4" /></Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end">
+                                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Processing')}>Mark as Processing</DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Shipped')}>Mark as Shipped</DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Delivered')}>Mark as Delivered</DropdownMenuItem>
+                                            <DropdownMenuSeparator />
+                                            <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'Cancelled')} className="text-red-600">Cancel Order</DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <Card>
+                        <CardHeader><CardTitle>Sales Trend</CardTitle></CardHeader>
+                        <CardContent className="h-64">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={salesData}><XAxis dataKey="name" /><YAxis /><Tooltip /><Line type="monotone" dataKey="sales" stroke="#8884d8" /></LineChart>
+                            </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader><CardTitle>Top Selling Products</CardTitle></CardHeader>
+                        <CardContent className="h-64">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={topProducts}><XAxis dataKey="name" /><YAxis /><Tooltip /><Bar dataKey="sales" fill="#82ca9d" /></BarChart>
+                            </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
         </div>
     )

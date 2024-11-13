@@ -34,7 +34,8 @@ export default function ExplorePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="p-3">
+      <div className="min-h-screen bg-white p-2 shadow-md order rounded-md">
       {/* <header className="bg-[#00A19C] text-white p-4 sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
@@ -150,6 +151,7 @@ export default function ExplorePage() {
         </section>
       </main>
     </div>
+    </div>
   )
 }
 
@@ -174,7 +176,7 @@ interface ProductCardProps {
 }
 function ProductCard({ product, isSale = false }:ProductCardProps) {
   return (
-    <Card className="w-[250px] flex flex-col">
+    <Card className=" flex flex-col">
       <CardHeader className="p-0">
         <div className="relative aspect-square">
           <Image
