@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Bar, BarChart, Line, LineChart, Pie, PieChart } from "recharts"
-import {  DownloadIcon } from "lucide-react"
+import { DownloadIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -57,7 +57,7 @@ export default function EnhancedInsightsPage() {
         <div className="flex space-x-4">
           {/* <DatePickerWithRange date={dateRange} setDate={setDateRange} /> */}
           <Button variant="outline">
-             Refresh
+            Refresh
           </Button>
           <Button>
             <DownloadIcon className="mr-2 h-4 w-4" /> Export
@@ -87,6 +87,7 @@ export default function EnhancedInsightsPage() {
             <p className="text-xs text-muted-foreground">+20.1% from last month</p>
           </CardContent>
         </Card>
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Orders</CardTitle>
@@ -110,6 +111,7 @@ export default function EnhancedInsightsPage() {
             <p className="text-xs text-muted-foreground">+15% from last month</p>
           </CardContent>
         </Card>
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Average Rating</CardTitle>
@@ -131,6 +133,7 @@ export default function EnhancedInsightsPage() {
             <p className="text-xs text-muted-foreground">+0.2 from last month</p>
           </CardContent>
         </Card>
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
@@ -152,6 +155,7 @@ export default function EnhancedInsightsPage() {
             <p className="text-xs text-muted-foreground">+2% from last month</p>
           </CardContent>
         </Card>
+
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -244,11 +248,10 @@ export default function EnhancedInsightsPage() {
                   <TableCell>{order.product}</TableCell>
                   <TableCell>${order.amount.toFixed(2)}</TableCell>
                   <TableCell>
-                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                      order.status === 'Shipped' ? 'bg-yellow-100 text-yellow-800' :
-                      order.status === 'Delivered' ? 'bg-green-100 text-green-800' :
-                      'bg-blue-100 text-blue-800'
-                    }`}>
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${order.status === 'Shipped' ? 'bg-yellow-100 text-yellow-800' :
+                        order.status === 'Delivered' ? 'bg-green-100 text-green-800' :
+                          'bg-blue-100 text-blue-800'
+                      }`}>
                       {order.status}
                     </span>
                   </TableCell>
