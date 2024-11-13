@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
@@ -65,11 +65,11 @@ export default function Supportdesk() {
                                                 <CardTitle>Active Chats</CardTitle>
                                             </CardHeader>
                                             <CardContent>
-                                                <ScrollArea className="h-[300px]">
+                                                <ScrollArea className="min-h-[300px] h-full p-1">
                                                     {chats.map((chat) => (
                                                         <div
                                                             key={chat.id}
-                                                            className={`flex items-center space-x-4 p-2 hover:bg-gray-100 cursor-pointer ${activeChat === chat.id ? 'bg-gray-100' : ''
+                                                            className={`flex items-center space-x-1 rounded my-2 p-2 hover:bg-gray-100 cursor-pointer ${activeChat === chat.id ? 'bg-gray-100' : ''
                                                                 }`}
                                                             onClick={() => setActiveChat(chat.id)}
                                                         >
@@ -80,9 +80,9 @@ export default function Supportdesk() {
                                                                 <p className="text-sm font-medium text-gray-900 truncate">{chat.name}</p>
                                                                 <p className="text-sm text-gray-500 truncate">{chat.message}</p>
                                                             </div>
-                                                            <div className="flex flex-col items-end">
+                                                            <div className="flex flex-col items-center">
                                                                 <p className="text-xs text-gray-400">{chat.time}</p>
-                                                                {chat.unread && <Badge variant="destructive">New</Badge>}
+                                                                {chat.unread && <span className='bg-red-600 text-xs scale-75 text-white rounded-md px-1 py-1'>New</span>}
                                                             </div>
                                                         </div>
                                                     ))}

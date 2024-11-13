@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import { NavConstraints } from '@/Constraints/NavConstraints';
 import Unauthorizedimg from "@/assets/Unauthorized.png"
+import Reduxprovider from '@/config/redux/reduxprovider';
 
 // type AllowedUserType = 'admin' | 'superadmin';
 
@@ -31,13 +32,13 @@ const AuthbashedRouting = ({ children, usertype }: AuthbashedRoutingtype) => {
 
   const Authpage = () => {
     return (
-      <>
+      <Reduxprovider>
         {isAuthorized ?
           children :
           <div className='flex items-center justify-center h-screen w-full z-[1001] fixed top-0 left-0'>
             <Image className='w-3/4 max-w-96 min-w-40' src={Unauthorizedimg} alt="Unauthorized" width={500} height={300} />
           </div>}
-      </>
+      </Reduxprovider>
     )
   }
 

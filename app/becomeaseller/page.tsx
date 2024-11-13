@@ -429,12 +429,13 @@ export default function BecomeASeller() {
   }
 
   return (
-    <div className="container mx-auto p-4 max-w-3xl">
+    <div className='p-3'>
+      <div className="container mx-auto p-4 bg-white rounded-md shadow-md order">
       <h1 className="text-3xl font-bold mb-6 text-center">Become a Seller on Beatsflex</h1>
       
       <Card>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="my-4 px-2">
             <Progress value={(step / steps.length) * 100} className="w-full" />
           </div>
           {renderStep()}
@@ -463,6 +464,7 @@ export default function BecomeASeller() {
       <div className="mt-8 text-center text-sm text-muted-foreground">
         <p>Need help? Contact our seller support team at <a href="mailto:seller-support@beatsflex.com" className="text-[#00A19C] hover:underline">seller-support@beatsflex.com</a></p>
       </div>
+    </div>
     </div>
   )
 }
