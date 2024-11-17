@@ -61,29 +61,26 @@ const data = [
 export default function DashboardAreaChart() {
   return (
     <div className='p-4 shadow-md border rounded-md bg-white'>
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorsale" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#00A7A7" stopOpacity={0.8} />
               <stop offset="95%" stopColor="#00A7A7" stopOpacity={0} />
             </linearGradient>
-            {/* <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id="coloramt" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="red" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="red" stopOpacity={0} />
-          </linearGradient> */}
           </defs>
-          <XAxis dataKey="Month" />
-          <YAxis />
+          <XAxis dataKey="Month" 
+          interval={0} 
+          className='text-sm'
+          // angle={-45}
+          />
+          <YAxis 
+          className='text-sm'
+          dataKey="sale" 
+          />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Area type="monotone" dataKey="sale" stroke="#00A7A7" fillOpacity={1} fill="url(#colorsale)" />
-          {/* <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
-        <Area type="monotone" dataKey="amt" stroke="red" fillOpacity={1} fill="url(#coloramt)" /> */}
         </AreaChart>
       </ResponsiveContainer>
     </div>

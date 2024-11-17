@@ -6,9 +6,9 @@ interface LoginData {
 
 export const login = async (
   data: LoginData
-): Promise<ApiResponse<{ token: string }>> => {
+): Promise<ApiResponse<{message:string}>> => {
   const url = "/api/admin/login";
-  return HttpClient.apiCaller<{ token: string }>({
+  return HttpClient.apiCaller<{message:string}>({
     uri: url,
     method: "POST",
     data: data,

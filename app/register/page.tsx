@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ChevronLeft, ChevronRight, User, MapPin, Lock, Settings, CheckCircle, AlertCircle } from 'lucide-react'
+import { ChevronLeft, ChevronRight, User, MapPin, Lock, Settings, CheckCircle, AlertCircle, Home } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,12 +9,12 @@ import { Label } from "@/components/ui/label"
 // import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-// import { alert } from "@/components/ui/use-alert"
 import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { useRouter } from 'next/navigation'
 
-export default function EnhancedMultiStepRegistration() {
-  const [step, setStep] = useState(1)
+export default function Usersignup() {
+  const [step, setStep] = useState(3)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -80,10 +80,6 @@ export default function EnhancedMultiStepRegistration() {
     if (validateStep()) {
       // Here you would typically handle the form submission
       console.log('Form submitted:', formData)
-      alert({
-        title: "Registration Successful",
-        description: "Your account has been created. Welcome to Beatsflex!",
-      })
     }
   }
 
@@ -95,7 +91,7 @@ export default function EnhancedMultiStepRegistration() {
     if (password.match(/[^a-zA-Z\d]/)) strength++
     return strength
   }
-
+  const router =useRouter()
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -235,7 +231,7 @@ export default function EnhancedMultiStepRegistration() {
         return (
           <>
             <CardHeader>
-              <CardTitle className="flex items-center"><Lock className="mr-2 text-[#00A19C]" /> Account Security</CardTitle>
+              <CardTitle className="flex items-center"><Lock size={18} className="mr-2 text-[#00A19C]" /> Account Security</CardTitle>
               <CardDescription>Create a secure password for your account</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -368,8 +364,9 @@ export default function EnhancedMultiStepRegistration() {
   }
 
   return (
-    <div className="container mx-auto flex items-center justify-center min-h-screen p-4">
-      <Card className="w-full max-w-lg">
+    <div className="bg-white flex items-center justify-center w-full p-2">
+      <Card className="w-full h-full max-w-md flex items-center m-auto justify-center relative p-3">
+      <Home  size={16} className='absolute top-0 left-0 m-3 cursor-pointer' color='#00A19C' onClick={()=>{router.back()}}/>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Progress value={(step / 5) * 100} className="w-full" />

@@ -2,11 +2,10 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 // API Base URL
 const API_BASE_URL = "http://192.168.29.92:3004";
-// const API_BASE_URL = "https://buynestbacknd-h2qa.onrender.com/";
+// const API_BASE_URL = "https://buynestbacknd.onrender.com";
 
 interface DeleteApiCallerProps {
   uri: string;
-  token?: string | number;
 }
 
 export interface SuccessResponse<T> {
@@ -25,16 +24,12 @@ export interface ErrorResponse<T> {
 export type ApiResponse<T> = SuccessResponse<T> | ErrorResponse<T>;
 
 const deleteApicaller = <T>({
-  uri,
-  token,
+  uri
 }: DeleteApiCallerProps): Promise<AxiosResponse<ApiResponse<T>>> => {
   return new Promise((resolve, reject) => {
     const config: AxiosRequestConfig = {
       method: "delete",
-      url: API_BASE_URL + uri,
-      headers: {
-        Authorization: token ? `Bearer ${token}` : undefined,
-      },
+      url: API_BASE_URL + uri
     };
 
     axios(config)
@@ -47,7 +42,6 @@ interface ApiCallerProps {
   uri: string;
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   data?: object;
-  token?: string | null | number;
   contentType?: string;
 }
 
@@ -55,7 +49,6 @@ const apiCaller = <T>({
   uri,
   method = "GET",
   data = {},
-  token,
   contentType,
 }: ApiCallerProps): Promise<ApiResponse<T>> => {
   return new Promise((resolve, reject) => {
@@ -65,7 +58,6 @@ const apiCaller = <T>({
       headers: {
         "Content-Type": contentType || "application/json",
         Accept: "/",
-        Authorization: token ? `Bearer ${token}` : undefined,
       },
       data,
     };
